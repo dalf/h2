@@ -4,6 +4,7 @@ import os
 import re
 
 from setuptools import setup, find_packages
+from Cython.Build import cythonize
 
 PROJECT_ROOT = os.path.dirname(__file__)
 
@@ -32,6 +33,7 @@ setup(
     package_data={'h2': []},
     package_dir={'': 'src'},
     python_requires='>=3.6.1',
+    ext_modules=cythonize("src/h2/*.py"),
     license='MIT License',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
